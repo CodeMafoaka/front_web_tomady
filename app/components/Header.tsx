@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useLanguage } from "./LanguageProvider";
-import { LogomarkIcon } from "./icons";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -36,12 +36,17 @@ export default function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link
           href="#home"
-          className="group flex items-center gap-2 text-2xl font-extrabold tracking-tight text-brand"
+          className="group flex items-center gap-2"
+          aria-label="tomady — Accueil"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white shadow-sm transition-transform group-hover:scale-105 group-hover:rotate-3">
-            <LogomarkIcon size={20} className="h-5 w-5" />
-          </span>
-          tomady
+          <Image
+            src="/logo/logo web.png"
+            alt="tomady"
+            width={140}
+            height={36}
+            priority
+            className="h-9 w-auto transition-transform group-hover:scale-[1.02]"
+          />
         </Link>
 
         <ul className="hidden items-center gap-8 lg:flex">

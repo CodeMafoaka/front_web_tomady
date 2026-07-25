@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslation } from "./LanguageProvider";
 import DownloadButton from "./DownloadButton";
-import { LogomarkIcon, BowlIcon, StrawberryIcon } from "./icons";
+import { BowlIcon, StrawberryIcon } from "./icons";
 
 export default function Footer() {
   const t = useTranslation();
@@ -15,12 +16,16 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link
               href="#home"
-              className="flex items-center gap-2 text-2xl font-extrabold tracking-tight text-brand"
+              className="inline-block"
+              aria-label="tomady — Accueil"
             >
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white shadow-sm">
-                <LogomarkIcon size={20} className="h-5 w-5" />
-              </span>
-              tomady
+              <Image
+                src="/logo/logo web.png"
+                alt="tomady"
+                width={140}
+                height={36}
+                className="h-9 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
               {t.footer.tagline}

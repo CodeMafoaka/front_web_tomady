@@ -22,11 +22,23 @@ export const metadata: Metadata = {
     "application mobile",
     "IA",
   ],
+  metadataBase: new URL("https://front-web-tomady.vercel.app"),
+  icons: {
+    icon: [
+      {
+        url: "/logo/logo web.png",
+        type: "image/png",
+        sizes: "any",
+      },
+    ],
+    apple: "/logo/logo web.png",
+  },
   openGraph: {
     title: "tomady — Ton coach nutrition dans ta poche",
     description:
       "Suis tes repas, atteins tes objectifs, mange mieux — dans une seule app.",
     type: "website",
+    images: ["/logo/logo web.png"],
   },
 };
 
