@@ -4,7 +4,6 @@ import Stats from "./components/Stats";
 import Solutions from "./components/Solutions";
 import AppScreens from "./components/AppScreens";
 import Alerts from "./components/Alerts";
-import TranslateDemo from "./components/TranslateDemo";
 import Testimonials from "./components/Testimonials";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
@@ -19,7 +18,6 @@ export default function Home() {
         <Solutions />
         <AppScreens />
         <Alerts />
-        <TranslateDemo />
         <Testimonials />
         <CTA />
       </main>

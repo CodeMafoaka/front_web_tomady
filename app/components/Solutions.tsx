@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage, useTranslation } from "./LanguageProvider";
+import { useTranslation } from "./LanguageProvider";
 
 const solutions = [
   {
@@ -67,7 +67,6 @@ const solutions = [
 
 export default function Solutions() {
   const t = useTranslation();
-  const { lang } = useLanguage();
 
   return (
     <section
@@ -93,13 +92,6 @@ export default function Solutions() {
           <p className="mx-auto mt-3 max-w-xl text-xs italic text-muted">
             {t.solutions.medical}
           </p>
-
-          <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand" />
-            {lang === "fr"
-              ? "Propulsé par Gemma 3 · Google AI Studio"
-              : "Powered by Gemma 3 · Google AI Studio"}
-          </div>
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
