@@ -86,14 +86,19 @@ export default function Hero() {
 
           <div className="mt-10 flex items-center gap-6">
             <div className="flex -space-x-3">
-              {[1, 2, 3, 4].map((i) => (
+              {[
+                { src: "/photo/sarah-rakoto.jpg", alt: "Sarah Rakoto" },
+                { src: "/photo/lucas-bernard.jpg", alt: "Lucas Bernard" },
+                { src: "/photo/aina-tessier.jpg", alt: "Aina Tessier" },
+                { src: "/photo/jim-carrey.jpg", alt: "Jim Carrey" },
+              ].map((u) => (
                 <span
-                  key={i}
+                  key={u.alt}
                   className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-muted shadow-sm"
                 >
                   <Image
-                    src={`/photo/avatar-${i}.jpg`}
-                    alt={`Tomady user ${i}`}
+                    src={u.src}
+                    alt={u.alt}
                     width={40}
                     height={40}
                     className="h-full w-full object-cover"

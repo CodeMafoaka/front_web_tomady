@@ -1,16 +1,25 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage, useTranslation } from "./LanguageProvider";
-import { StarIcon, QuoteIcon } from "./icons";
+import { QuoteIcon } from "./icons";
 
 type T = {
   fr: { name: string; role: string; quote: string };
   en: { name: string; role: string; quote: string };
 };
 
-const testimonialsData: { avatar: string; color: string; t: T }[] = [
+type Testimonial = {
+  avatar: string;
+  photo: string;
+  color: string;
+  t: T;
+};
+
+const testimonialsData: Testimonial[] = [
   {
     avatar: "SR",
+    photo: "/photo/sarah-rakoto.jpg",
     color: "bg-brand",
     t: {
       fr: {
@@ -29,6 +38,7 @@ const testimonialsData: { avatar: string; color: string; t: T }[] = [
   },
   {
     avatar: "LB",
+    photo: "/photo/lucas-bernard.jpg",
     color: "bg-warning",
     t: {
       fr: {
@@ -47,6 +57,7 @@ const testimonialsData: { avatar: string; color: string; t: T }[] = [
   },
   {
     avatar: "AT",
+    photo: "/photo/aina-tessier.jpg",
     color: "bg-error",
     t: {
       fr: {
@@ -101,7 +112,16 @@ export default function Testimonials() {
 
                 <div className="flex items-center gap-1 text-warning">
                   {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} size={16} className="h-4 w-4" />
+                    <svg
+                      key={i}
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-4 w-4"
+                      aria-hidden
+                    >
+                      <path d="M12 2l2.39 7.36H22l-6.19 4.5L18.2 21 12 16.5 5.8 21l2.39-7.14L2 9.36h7.61L12 2z" />
+                    </svg>
                   ))}
                 </div>
 
@@ -110,10 +130,14 @@ export default function Testimonials() {
                 </p>
 
                 <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                  <span
-                    className={`grid h-11 w-11 place-items-center rounded-full text-sm font-bold text-white ${item.color}`}
-                  >
-                    {item.avatar}
+                  <span className="relative h-11 w-11 overflow-hidden rounded-full border-2 border-white shadow-sm ring-1 ring-border">
+                    <Image
+                      src={item.photo}
+                      alt={txt.name}
+                      width={44}
+                      height={44}
+                      className="h-full w-full object-cover"
+                    />
                   </span>
                   <div>
                     <p className="text-sm font-bold text-foreground">{txt.name}</p>
