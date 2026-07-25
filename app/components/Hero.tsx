@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslation } from "./LanguageProvider";
 import DownloadButton from "./DownloadButton";
 import {
@@ -9,7 +10,6 @@ import {
   StrawberryIcon,
   MicIcon,
   BellIcon,
-  LogomarkIcon,
   HeartIcon,
 } from "./icons";
 
@@ -86,16 +86,20 @@ export default function Hero() {
 
           <div className="mt-10 flex items-center gap-6">
             <div className="flex -space-x-3">
-              {["bg-brand", "bg-warning", "bg-error", "bg-brand-dark"].map(
-                (c, i) => (
-                  <span
-                    key={i}
-                    className={`grid h-10 w-10 place-items-center rounded-full border-2 border-white text-xs font-bold text-white ${c}`}
-                  >
-                    {["SR", "LM", "AT", "JP"][i]}
-                  </span>
-                )
-              )}
+              {[1, 2, 3, 4].map((i) => (
+                <span
+                  key={i}
+                  className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-muted shadow-sm"
+                >
+                  <Image
+                    src={`/photo/avatar-${i}.jpg`}
+                    alt={`Tomady user ${i}`}
+                    width={40}
+                    height={40}
+                    className="h-full w-full object-cover"
+                  />
+                </span>
+              ))}
             </div>
             <div>
               <div className="flex items-center gap-1 text-warning">
@@ -210,11 +214,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Use Logomark so it's not dead code if needed elsewhere */}
-      <span className="hidden">
-        <LogomarkIcon size={24} />
-      </span>
     </section>
   );
 }
