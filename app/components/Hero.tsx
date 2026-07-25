@@ -2,6 +2,17 @@
 
 import Link from "next/link";
 import { useTranslation } from "./LanguageProvider";
+import {
+  AvocadoIcon,
+  BowlIcon,
+  StrawberryIcon,
+  MicIcon,
+  BellIcon,
+  LogomarkIcon,
+  HeartIcon,
+} from "./icons";
+
+const ITEM_ICON_KEYS = ["avocado", "bowl", "strawberry"] as const;
 
 function PhoneMockup({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +23,13 @@ function PhoneMockup({ children }: { children: React.ReactNode }) {
       </div>
     </div>
   );
+}
+
+function FoodGlyph({ kind }: { kind: (typeof ITEM_ICON_KEYS)[number] }) {
+  const cls = "h-6 w-6";
+  if (kind === "avocado") return <AvocadoIcon size={24} className={cls} />;
+  if (kind === "bowl") return <BowlIcon size={24} className={cls} />;
+  return <StrawberryIcon size={24} className={cls} />;
 }
 
 export default function Hero() {
@@ -92,15 +110,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-6 flex items-center gap-3 text-xs font-medium text-muted">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="h-4 w-4 text-brand"
-              aria-hidden
-            >
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-            </svg>
+            <HeartIcon size={16} className="h-4 w-4 text-brand" />
             {t.hero.free}
           </div>
 
@@ -182,8 +192,8 @@ export default function Hero() {
                     className="flex items-center justify-between rounded-xl border border-border bg-white px-3 py-2.5 shadow-sm"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-lg" aria-hidden>
-                        {item.emoji}
+                      <span className="grid h-7 w-7 place-items-center rounded-lg bg-brand-soft text-brand-dark">
+                        <FoodGlyph kind={ITEM_ICON_KEYS[idx]} />
                       </span>
                       <p className="text-xs font-semibold text-foreground">
                         {item.name}
@@ -203,8 +213,8 @@ export default function Hero() {
 
           <div className="absolute left-2 top-32 z-20 rounded-2xl bg-white p-3 shadow-xl animate-float">
             <div className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-error text-base text-white">
-                🎙️
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-error text-white">
+                <MicIcon size={18} className="h-5 w-5" />
               </span>
               <div>
                 <p className="text-[10px] text-muted">AI listening</p>
@@ -217,8 +227,8 @@ export default function Hero() {
 
           <div className="absolute right-2 bottom-20 z-20 rounded-2xl bg-white p-3 shadow-xl animate-float">
             <div className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-warning text-base text-white">
-                🔔
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-warning text-white">
+                <BellIcon size={18} className="h-5 w-5" />
               </span>
               <div>
                 <p className="text-[10px] text-muted">Alert</p>
@@ -230,6 +240,11 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Use Logomark so it's not dead code if needed elsewhere */}
+      <span className="hidden">
+        <LogomarkIcon size={24} />
+      </span>
     </section>
   );
 }

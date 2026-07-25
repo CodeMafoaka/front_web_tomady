@@ -1,6 +1,16 @@
 "use client";
 
 import { useLanguage, useTranslation } from "./LanguageProvider";
+import {
+  PeanutIcon,
+  BowlIcon,
+  CroissantIcon,
+  FishIcon,
+  BellIcon,
+  AlertTriangleIcon,
+  CheckIcon,
+  CrossIcon,
+} from "./icons";
 
 const items = [
   { key: "i1" as const, color: "bg-error" },
@@ -14,7 +24,7 @@ type Food = {
   r: string;
   rEn: string;
   ok: boolean;
-  e: string;
+  icon: "peanut" | "bowl" | "croissant" | "fish";
 };
 
 const foods: Food[] = [
@@ -24,7 +34,7 @@ const foods: Food[] = [
     r: "Contient : Arachides",
     rEn: "Contains: Peanuts",
     ok: false,
-    e: "🥜",
+    icon: "peanut",
   },
   {
     n: "Quinoa bowl légumes",
@@ -32,7 +42,7 @@ const foods: Food[] = [
     r: "Riche en fibres · 380 kcal",
     rEn: "High fiber · 380 kcal",
     ok: true,
-    e: "🥗",
+    icon: "bowl",
   },
   {
     n: "Croissant beurre",
@@ -40,7 +50,7 @@ const foods: Food[] = [
     r: "Contient : Gluten, Lactose",
     rEn: "Contains: Gluten, Lactose",
     ok: false,
-    e: "🥐",
+    icon: "croissant",
   },
   {
     n: "Saumon grillé riz",
@@ -48,9 +58,17 @@ const foods: Food[] = [
     r: "Riche en protéines · 420 kcal",
     rEn: "High protein · 420 kcal",
     ok: true,
-    e: "🐟",
+    icon: "fish",
   },
 ];
+
+function FoodGlyph({ kind }: { kind: Food["icon"] }) {
+  const cls = "h-7 w-7";
+  if (kind === "peanut") return <PeanutIcon size={28} className={cls} />;
+  if (kind === "bowl") return <BowlIcon size={28} className={cls} />;
+  if (kind === "croissant") return <CroissantIcon size={28} className={cls} />;
+  return <FishIcon size={28} className={cls} />;
+}
 
 export default function Alerts() {
   const t = useTranslation();
@@ -86,19 +104,7 @@ export default function Alerts() {
                 <span
                   className={`mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full text-white ${item.color}`}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                    aria-hidden
-                  >
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
+                  <CheckIcon size={18} className="h-4 w-4" />
                 </span>
                 <div>
                   <p className="text-sm font-bold text-foreground">
@@ -116,8 +122,8 @@ export default function Alerts() {
         <div className="relative mx-auto w-full max-w-md">
           <div className="rounded-3xl border border-border bg-white p-6 shadow-2xl">
             <div className="flex items-center gap-2 rounded-2xl bg-foreground p-3 text-white">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-error text-base">
-                🔔
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-error">
+                <BellIcon size={18} className="h-5 w-5" />
               </span>
               <div className="flex-1">
                 <p className="text-[10px] opacity-70">{t.alerts.alertSub}</p>
@@ -136,8 +142,14 @@ export default function Alerts() {
                       : "border-error/40 bg-error/5"
                   }`}
                 >
-                  <span className="text-2xl" aria-hidden>
-                    {f.e}
+                  <span
+                    className={`grid h-10 w-10 place-items-center rounded-xl ${
+                      f.ok
+                        ? "bg-white text-brand-dark"
+                        : "bg-white text-error"
+                    }`}
+                  >
+                    <FoodGlyph kind={f.icon} />
                   </span>
                   <div className="flex-1">
                     <p className="text-sm font-bold text-foreground">
@@ -148,22 +160,26 @@ export default function Alerts() {
                     </p>
                   </div>
                   <span
-                    className={`grid h-7 w-7 place-items-center rounded-full text-xs font-bold text-white ${
+                    className={`grid h-7 w-7 place-items-center rounded-full text-white ${
                       f.ok ? "bg-brand" : "bg-error"
                     }`}
                   >
-                    {f.ok ? "✓" : "✕"}
+                    {f.ok ? (
+                      <CheckIcon size={14} className="h-3.5 w-3.5" />
+                    ) : (
+                      <CrossIcon size={14} className="h-3.5 w-3.5" />
+                    )}
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <span className="absolute -bottom-3 -left-3 grid h-12 w-12 place-items-center rounded-2xl bg-warning text-white shadow-lg text-xl animate-bounce-slow">
-            ⚠️
+          <span className="absolute -bottom-3 -left-3 grid h-12 w-12 place-items-center rounded-2xl bg-warning text-white shadow-lg animate-bounce-slow">
+            <AlertTriangleIcon size={22} className="h-6 w-6" />
           </span>
-          <span className="absolute -right-3 top-20 grid h-10 w-10 place-items-center rounded-full bg-brand text-white shadow-lg text-base">
-            ✓
+          <span className="absolute -right-3 top-20 grid h-10 w-10 place-items-center rounded-full bg-brand text-white shadow-lg">
+            <CheckIcon size={18} className="h-4 w-4" />
           </span>
         </div>
       </div>

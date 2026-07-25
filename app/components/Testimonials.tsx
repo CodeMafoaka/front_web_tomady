@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage, useTranslation } from "./LanguageProvider";
+import { StarIcon, QuoteIcon } from "./icons";
 
 type T = {
   fr: { name: string; role: string; quote: string };
@@ -95,29 +96,12 @@ export default function Testimonials() {
                 className="relative rounded-3xl border border-border bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
               >
                 <span className="absolute -top-3 left-7 grid h-9 w-9 place-items-center rounded-2xl bg-brand text-white shadow-md">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="h-4 w-4"
-                    aria-hidden
-                  >
-                    <path d="M7 7h3v3H7v3H4V7a3 3 0 0 1 3-3zm10 0h-3v3h3v3h3V7a3 3 0 0 0-3-3z" />
-                  </svg>
+                  <QuoteIcon size={16} className="h-4 w-4" />
                 </span>
 
                 <div className="flex items-center gap-1 text-warning">
                   {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="h-4 w-4"
-                      aria-hidden
-                    >
-                      <path d="M12 2l2.39 7.36H22l-6.19 4.5L18.2 21 12 16.5 5.8 21l2.39-7.14L2 9.36h7.61L12 2z" />
-                    </svg>
+                    <StarIcon key={i} size={16} className="h-4 w-4" />
                   ))}
                 </div>
 

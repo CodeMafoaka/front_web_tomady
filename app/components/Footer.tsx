@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTranslation } from "./LanguageProvider";
+import { LogomarkIcon, AppleIcon, BowlIcon, StrawberryIcon } from "./icons";
 
 export default function Footer() {
   const t = useTranslation();
@@ -16,24 +17,7 @@ export default function Footer() {
               className="flex items-center gap-2 text-2xl font-extrabold tracking-tight text-brand"
             >
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white shadow-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                  aria-hidden
-                >
-                  <path d="M12 21s-7-4.35-7-10a7 7 0 1 1 14 0c0 5.65-7 10-7 10z" />
-                  <path
-                    d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-                    fill="currentColor"
-                    stroke="none"
-                  />
-                </svg>
+                <LogomarkIcon size={20} className="h-5 w-5" />
               </span>
               tomady
             </Link>
@@ -72,6 +56,21 @@ export default function Footer() {
                 </svg>
                 {t.download.playStore}
               </Link>
+            </div>
+
+            <div className="mt-6 flex items-center gap-3">
+              {[
+                { Icon: AppleIcon, color: "bg-brand" },
+                { Icon: BowlIcon, color: "bg-warning" },
+                { Icon: StrawberryIcon, color: "bg-error" },
+              ].map((s, i) => (
+                <span
+                  key={i}
+                  className={`grid h-10 w-10 place-items-center rounded-full text-white ${s.color}`}
+                >
+                  <s.Icon size={22} className="h-5 w-5" />
+                </span>
+              ))}
             </div>
 
             <p className="mt-6 text-[11px] leading-relaxed text-white/50">

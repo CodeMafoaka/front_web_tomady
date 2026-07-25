@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLanguage } from "./LanguageProvider";
+import { LogomarkIcon } from "./icons";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,34 +29,17 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/85 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-transparent"
+          ? "border-b border-border bg-white/70 backdrop-blur-xl shadow-sm"
+          : "bg-white/0 backdrop-blur-0"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link
           href="#home"
-          className="flex items-center gap-2 text-2xl font-extrabold tracking-tight text-brand"
+          className="group flex items-center gap-2 text-2xl font-extrabold tracking-tight text-brand"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white shadow-sm">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5"
-              aria-hidden
-            >
-              <path d="M12 21s-7-4.35-7-10a7 7 0 1 1 14 0c0 5.65-7 10-7 10z" />
-              <path
-                d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-                fill="currentColor"
-                stroke="none"
-              />
-            </svg>
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white shadow-sm transition-transform group-hover:scale-105 group-hover:rotate-3">
+            <LogomarkIcon size={20} className="h-5 w-5" />
           </span>
           tomady
         </Link>
@@ -74,16 +58,17 @@ export default function Header() {
         </ul>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <div className="flex items-center overflow-hidden rounded-full border border-border bg-white">
+          <div className="flex items-center overflow-hidden rounded-full border border-border bg-white/80 p-0.5 backdrop-blur-sm">
             {(["fr", "en"] as const).map((code) => (
               <button
                 key={code}
                 type="button"
                 onClick={() => setLang(code)}
                 aria-pressed={lang === code}
-                className={`px-3 py-1.5 text-xs font-bold uppercase transition-colors ${
+                aria-label={`Switch language to ${code.toUpperCase()}`}
+                className={`px-3 py-1.5 text-[11px] font-bold uppercase transition-all ${
                   lang === code
-                    ? "bg-brand text-white"
+                    ? "rounded-full bg-brand text-white shadow-sm"
                     : "text-muted hover:text-brand"
                 }`}
               >
@@ -93,16 +78,22 @@ export default function Header() {
           </div>
           <Link
             href="#download"
-            className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-brand-dark hover:shadow-lg hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-lg"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              fill="currentColor"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="h-4 w-4"
               aria-hidden
             >
-              <path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42L11 13.59V4a1 1 0 0 1 1-1zm-7 16a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z" />
+              <path d="M12 4v12" />
+              <path d="m7 11 5 5 5-5" />
+              <path d="M5 20h14" />
             </svg>
             {t.nav.download}
           </Link>
@@ -112,7 +103,7 @@ export default function Header() {
           type="button"
           aria-label={t.nav.toggleMenu}
           onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center rounded-lg text-foreground lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg text-foreground transition-colors hover:bg-brand-soft hover:text-brand lg:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -138,30 +129,30 @@ export default function Header() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-white px-6 py-4 lg:hidden">
+        <div className="border-t border-border bg-white/95 px-6 py-4 backdrop-blur-xl lg:hidden">
           <ul className="space-y-3">
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block text-sm font-semibold text-foreground/80 hover:text-brand"
+                  className="block text-sm font-semibold text-foreground/80 transition-colors hover:text-brand"
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
             <li className="flex items-center gap-2 pt-2">
-              <div className="flex items-center overflow-hidden rounded-full border border-border bg-white">
+              <div className="flex items-center overflow-hidden rounded-full border border-border bg-white p-0.5">
                 {(["fr", "en"] as const).map((code) => (
                   <button
                     key={code}
                     type="button"
                     onClick={() => setLang(code)}
                     aria-pressed={lang === code}
-                    className={`px-3 py-1.5 text-xs font-bold uppercase transition-colors ${
+                    className={`px-3 py-1.5 text-[11px] font-bold uppercase transition-all ${
                       lang === code
-                        ? "bg-brand text-white"
+                        ? "rounded-full bg-brand text-white"
                         : "text-muted hover:text-brand"
                     }`}
                   >
@@ -172,7 +163,7 @@ export default function Header() {
               <Link
                 href="#download"
                 onClick={() => setOpen(false)}
-                className="flex-1 rounded-full bg-brand px-5 py-2.5 text-center text-sm font-bold text-white"
+                className="flex-1 rounded-full bg-brand px-5 py-2.5 text-center text-sm font-bold text-white shadow-md"
               >
                 {t.nav.download}
               </Link>

@@ -2,6 +2,21 @@
 
 import Link from "next/link";
 import { useTranslation } from "./LanguageProvider";
+import {
+  FishIcon,
+  BowlIcon,
+  PeanutIcon,
+  AvocadoIcon,
+  TargetIcon,
+  PlusIcon,
+  CheckIcon,
+  CrossIcon,
+  MicIcon,
+  SendIcon,
+  HappyFaceIcon,
+  NeutralFaceIcon,
+  FlameIcon,
+} from "./icons";
 
 function PhoneShell({ children }: { children: React.ReactNode }) {
   return (
@@ -15,6 +30,22 @@ function PhoneShell({ children }: { children: React.ReactNode }) {
 }
 
 const screenKeys = ["s1", "s2", "s3", "s4", "s5"] as const;
+
+type FoodKind = "fish" | "bowl" | "peanut" | "avocado";
+function FoodGlyph({ kind, size = 18 }: { kind: FoodKind; size?: number }) {
+  const cls = `h-[${size}px] w-[${size}px]`;
+  if (kind === "fish") return <FishIcon size={size} className={cls} />;
+  if (kind === "bowl") return <BowlIcon size={size} className={cls} />;
+  if (kind === "peanut") return <PeanutIcon size={size} className={cls} />;
+  return <AvocadoIcon size={size} className={cls} />;
+}
+
+type MoodKind = "fire" | "happy" | "neutral";
+function MoodGlyph({ kind }: { kind: MoodKind }) {
+  if (kind === "fire") return <FlameIcon size={16} className="h-4 w-4" />;
+  if (kind === "happy") return <HappyFaceIcon size={16} className="h-4 w-4" />;
+  return <NeutralFaceIcon size={16} className="h-4 w-4" />;
+}
 
 export default function AppScreens() {
   const t = useTranslation();
@@ -66,37 +97,13 @@ export default function AppScreens() {
                   <ul className="mt-5 space-y-2 text-sm text-foreground">
                     <li className="flex items-start gap-2">
                       <span className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-brand text-white">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-2.5 w-2.5"
-                          aria-hidden
-                        >
-                          <path d="M20 6 9 17l-5-5" />
-                        </svg>
+                        <CheckIcon size={10} className="h-2.5 w-2.5" />
                       </span>
                       {t.screens[`${key}F1` as const]}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-brand text-white">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-2.5 w-2.5"
-                          aria-hidden
-                        >
-                          <path d="M20 6 9 17l-5-5" />
-                        </svg>
+                        <CheckIcon size={10} className="h-2.5 w-2.5" />
                       </span>
                       {t.screens[`${key}F2` as const]}
                     </li>
@@ -191,8 +198,8 @@ function renderScreen(
               {p.goalLabel}
             </p>
             <div className="mt-2 flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-brand-soft text-base">
-                🎯
+              <span className="grid h-8 w-8 place-items-center rounded-full bg-brand-soft text-brand-dark">
+                <TargetIcon size={18} className="h-5 w-5" />
               </span>
               <p className="text-xs font-bold text-foreground">{p.goalValue}</p>
             </div>
@@ -219,6 +226,7 @@ function renderScreen(
 
   if (key === "s2") {
     const p = phones.screen2;
+    const kinds: FoodKind[] = ["fish", "bowl", "peanut", "avocado"];
     return (
       <PhoneShell>
         <div className="h-full bg-white p-4 pt-10">
@@ -247,8 +255,12 @@ function renderScreen(
                     : "border-error/30 bg-error/5"
                 }`}
               >
-                <span className="text-lg" aria-hidden>
-                  {f.emoji}
+                <span
+                  className={`grid h-7 w-7 place-items-center rounded-lg ${
+                    f.ok ? "bg-white text-brand-dark" : "bg-white text-error"
+                  }`}
+                >
+                  <FoodGlyph kind={kinds[i]} size={18} />
                 </span>
                 <div className="flex-1">
                   <p className="text-[10px] font-bold text-foreground">
@@ -257,11 +269,15 @@ function renderScreen(
                   <p className="text-[9px] text-muted">{f.kcal}</p>
                 </div>
                 <span
-                  className={`grid h-5 w-5 place-items-center rounded-full text-[9px] font-bold text-white ${
+                  className={`grid h-5 w-5 place-items-center rounded-full text-white ${
                     f.ok ? "bg-brand" : "bg-error"
                   }`}
                 >
-                  {f.ok ? "✓" : "✕"}
+                  {f.ok ? (
+                    <CheckIcon size={12} className="h-3 w-3" />
+                  ) : (
+                    <CrossIcon size={12} className="h-3 w-3" />
+                  )}
                 </span>
               </div>
             ))}
@@ -273,6 +289,7 @@ function renderScreen(
 
   if (key === "s3") {
     const p = phones.screen3;
+    const moods: MoodKind[] = ["fire", "happy", "fire", "neutral"];
     return (
       <PhoneShell>
         <div className="h-full bg-white p-4 pt-10">
@@ -281,8 +298,8 @@ function renderScreen(
               <p className="text-[10px] text-muted">{p.today}</p>
               <p className="text-sm font-extrabold text-foreground">{p.title}</p>
             </div>
-            <span className="grid h-7 w-7 place-items-center rounded-full bg-brand text-white text-xs">
-              +
+            <span className="grid h-7 w-7 place-items-center rounded-full bg-brand text-white">
+              <PlusIcon size={14} className="h-3.5 w-3.5" />
             </span>
           </div>
           <div className="mt-3 space-y-2">
@@ -295,8 +312,8 @@ function renderScreen(
                   <p className="text-[10px] font-extrabold uppercase tracking-wider text-brand">
                     {m.meal}
                   </p>
-                  <span className="text-base" aria-hidden>
-                    {m.mood}
+                  <span className="text-brand-dark">
+                    <MoodGlyph kind={moods[i]} />
                   </span>
                 </div>
                 <p className="mt-1 text-[10px] text-muted">{m.items}</p>
@@ -380,17 +397,18 @@ function renderScreen(
             {p.chatBot}
           </div>
           <div className="ml-auto flex items-center gap-1 max-w-[80%] rounded-2xl rounded-tr-sm bg-brand px-3 py-2 text-[10px] text-white">
-            <span>🎙️</span> {p.chatVoice}
+            <MicIcon size={12} className="h-3 w-3" />
+            {p.chatVoice}
           </div>
         </div>
         <div className="mt-auto rounded-2xl border border-border bg-white p-2 shadow-sm">
           <div className="flex items-center gap-2">
             <span className="grid h-7 w-7 place-items-center rounded-full bg-brand-soft text-brand">
-              🎤
+              <MicIcon size={14} className="h-3.5 w-3.5" />
             </span>
             <p className="flex-1 text-[10px] text-muted">{p.dictLabel}</p>
             <span className="grid h-7 w-7 place-items-center rounded-full bg-brand text-white">
-              ➤
+              <SendIcon size={12} className="h-3 w-3" />
             </span>
           </div>
         </div>
