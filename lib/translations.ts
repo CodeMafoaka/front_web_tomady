@@ -150,6 +150,14 @@ export const translations = {
     download: {
       appStore: "App Store",
       playStore: "Google Play",
+      downloadNow: "Télécharger maintenant",
+      downloading: "Téléchargement…",
+      thanks: "Merci ! 🎉",
+      androidOnly: "Android · APK direct",
+      iosNote:
+        "Compatible Android. Version iOS disponible bientôt sur l'App Store.",
+      sizeLabel: "18 MB",
+      version: "v1.0.0",
     },
     phones: {
       hero: {
@@ -362,6 +370,13 @@ export const translations = {
     download: {
       appStore: "App Store",
       playStore: "Google Play",
+      downloadNow: "Download now",
+      downloading: "Downloading…",
+      thanks: "Thanks! 🎉",
+      androidOnly: "Android · Direct APK",
+      iosNote: "Android compatible. iOS version coming soon to the App Store.",
+      sizeLabel: "18 MB",
+      version: "v1.0.0",
     },
     phones: {
       hero: {

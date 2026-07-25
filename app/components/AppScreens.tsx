@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTranslation } from "./LanguageProvider";
+import DownloadButton from "./DownloadButton";
 import {
   FishIcon,
   BowlIcon,
@@ -114,47 +115,9 @@ export default function AppScreens() {
           })}
         </div>
 
-        <div className="mt-20 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="#appstore"
-            className="inline-flex items-center gap-3 rounded-2xl bg-foreground px-5 py-3 text-white transition-all hover:-translate-y-0.5 hover:shadow-xl"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="h-6 w-6"
-              aria-hidden
-            >
-              <path d="M16.4 12.6c0-2.7 2.2-4 2.3-4.1-1.3-1.9-3.3-2.1-4-2.2-1.7-.2-3.3 1-4.1 1-.9 0-2.2-1-3.6-1-1.9 0-3.6 1.1-4.6 2.7-2 3.4-.5 8.5 1.4 11.3 1 1.4 2.1 2.9 3.6 2.9 1.5-.1 2-1 3.8-1 1.7 0 2.2 1 3.8 1 1.6 0 2.6-1.4 3.5-2.7 1.1-1.6 1.6-3.1 1.6-3.2-.1 0-3.1-1.2-3.1-4.7zM13.7 4.7c.8-1 1.4-2.4 1.2-3.7-1.2.1-2.6.8-3.4 1.8-.7.9-1.4 2.3-1.2 3.6 1.3.1 2.7-.7 3.4-1.7z" />
-            </svg>
-            <span className="text-left leading-tight">
-              <span className="block text-[10px] opacity-80">
-                {t.hero.appStoreSub}
-              </span>
-              <span className="block text-sm font-bold">{t.hero.appStore}</span>
-            </span>
-          </Link>
-          <Link
-            href="#playstore"
-            className="inline-flex items-center gap-3 rounded-2xl bg-foreground px-5 py-3 text-white transition-all hover:-translate-y-0.5 hover:shadow-xl"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="h-6 w-6"
-              aria-hidden
-            >
-              <path d="M3.6 2.3c-.4.4-.6 1-.6 1.7v16c0 .7.2 1.3.6 1.7L13.2 12 3.6 2.3zm10.6 10.5 2.6 2.6-9 5.2 6.4-7.8zm0-1.6L7.8 3.4l9 5.2-2.6 2.6zm6.7-3.4-2.4 1.4-2.9-2.9 2.9-2.9 2.4 1.4c1.2.7 1.2 2.3 0 3z" />
-            </svg>
-            <span className="text-left leading-tight">
-              <span className="block text-[10px] opacity-80">
-                {t.hero.playStoreSub}
-              </span>
-              <span className="block text-sm font-bold">{t.hero.playStore}</span>
-            </span>
-          </Link>
+        <div className="mt-20 flex flex-col items-center justify-center gap-3">
+          <DownloadButton variant="compact" />
+          <p className="text-[11px] text-muted">{t.download.androidOnly}</p>
         </div>
       </div>
     </section>

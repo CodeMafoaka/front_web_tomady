@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useTranslation } from "./LanguageProvider";
-import { LogomarkIcon, AppleIcon, BowlIcon, StrawberryIcon } from "./icons";
+import DownloadButton from "./DownloadButton";
+import { LogomarkIcon, BowlIcon, StrawberryIcon } from "./icons";
 
 export default function Footer() {
   const t = useTranslation();
@@ -25,44 +26,18 @@ export default function Footer() {
               {t.footer.tagline}
             </p>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="#appstore"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-2.5 text-sm font-bold text-foreground transition-all hover:-translate-y-0.5"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="h-5 w-5"
-                  aria-hidden
-                >
-                  <path d="M16.4 12.6c0-2.7 2.2-4 2.3-4.1-1.3-1.9-3.3-2.1-4-2.2-1.7-.2-3.3 1-4.1 1-.9 0-2.2-1-3.6-1-1.9 0-3.6 1.1-4.6 2.7-2 3.4-.5 8.5 1.4 11.3 1 1.4 2.1 2.9 3.6 2.9 1.5-.1 2-1 3.8-1 1.7 0 2.2 1 3.8 1 1.6 0 2.6-1.4 3.5-2.7 1.1-1.6 1.6-3.1 1.6-3.2-.1 0-3.1-1.2-3.1-4.7z" />
-                </svg>
-                {t.download.appStore}
-              </Link>
-              <Link
-                href="#playstore"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-2.5 text-sm font-bold text-foreground transition-all hover:-translate-y-0.5"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="h-5 w-5"
-                  aria-hidden
-                >
-                  <path d="M3.6 2.3c-.4.4-.6 1-.6 1.7v16c0 .7.2 1.3.6 1.7L13.2 12 3.6 2.3zm10.6 10.5 2.6 2.6-9 5.2 6.4-7.8zm0-1.6L7.8 3.4l9 5.2-2.6 2.6zm6.7-3.4-2.4 1.4-2.9-2.9 2.9-2.9 2.4 1.4c1.2.7 1.2 2.3 0 3z" />
-                </svg>
-                {t.download.playStore}
-              </Link>
+            <div className="mt-6 flex flex-col items-start gap-3">
+              <DownloadButton variant="footer" />
+              <p className="text-[11px] text-white/50">
+                {t.download.androidOnly} · {t.download.sizeLabel} ·{" "}
+                {t.download.version}
+              </p>
             </div>
 
             <div className="mt-6 flex items-center gap-3">
               {[
-                { Icon: AppleIcon, color: "bg-brand" },
-                { Icon: BowlIcon, color: "bg-warning" },
-                { Icon: StrawberryIcon, color: "bg-error" },
+                { Icon: BowlIcon, color: "bg-brand" },
+                { Icon: StrawberryIcon, color: "bg-warning" },
               ].map((s, i) => (
                 <span
                   key={i}

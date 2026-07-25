@@ -1,0 +1,9 @@
+// Placeholder Android APK — replaced at release time with the signed binary.
+// The download button on the landing page points here so the URL is stable.
+// To ship a real release: drop `tomady-v1.0.0.apk` in this folder and update
+// the version metadata in lib/download.ts.
+{
+  "placeholder": true,
+  "version": "0.0.0-placeholder",
+  "note": "Replace this file with the signed APK before launch. Update lib/download.ts to bump version."
+}
