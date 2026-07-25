@@ -24,7 +24,7 @@ export default function Footer() {
                 alt="tomady"
                 width={140}
                 height={36}
-                className="h-9 w-auto brightness-0 invert"
+                className="h-9 w-auto"
               />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">

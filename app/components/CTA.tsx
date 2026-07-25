@@ -18,12 +18,7 @@ export default function CTA() {
           <span className="blob h-72 w-72 bg-warning -top-20 -left-10 opacity-30" />
           <span className="blob h-72 w-72 bg-error -bottom-20 -right-10 opacity-25" />
 
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
-            {t.cta.badge}
-          </span>
-
-          <h2 className="relative mt-5 text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
+          <h2 className="relative text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
             {t.cta.title1}
             <br />
             {t.cta.title2}
