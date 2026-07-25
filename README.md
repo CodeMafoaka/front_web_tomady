@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# tomady — Landing Page
 
-## Getting Started
+Publicité web (FR / EN) pour l'application mobile **tomady**, coach nutrition IA
+disponible sur iOS & Android. Page statique, traduite en deux langues avec un
+switcher.
 
-First, run the development server:
+## Stack
+
+- **Next.js 14** (App Router)
+- **React 18**
+- **TypeScript 5**
+- **Tailwind CSS 3**
+
+## Démarrage
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Commande | Effet |
+| --- | --- |
+| `npm run dev` | Serveur de développement |
+| `npm run build` | Build de production |
+| `npm run start` | Démarre le build |
+| `npm run lint` | ESLint (config `next/core-web-vitals`) |
 
-## Learn More
+## i18n
 
-To learn more about Next.js, take a look at the following resources:
+Le site est bilingue FR / EN. La langue est sauvegardée dans
+`localStorage` (clé `tomady.lang`). Langue par défaut : **français**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Le switcher se trouve dans le header (FR / EN) et dans le menu mobile.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Toutes les chaînes — y compris le texte dans les mockups de téléphone —
+proviennent de `lib/translations.ts`.
 
-## Deploy on Vercel
+## Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/
+├── layout.tsx              # RootLayout, provider i18n, font
+├── page.tsx                # Composition des sections
+├── globals.css             # Tailwind + gradients + blob
+└── components/
+    ├── LanguageProvider.tsx
+    ├── Header.tsx          # Nav + switcher FR/EN
+    ├── Hero.tsx            # Mockup téléphone bilingue
+    ├── Stats.tsx
+    ├── Solutions.tsx
+    ├── AppScreens.tsx      # 5 mockups téléphone bilingues
+    ├── Alerts.tsx
+    ├── Testimonials.tsx
+    ├── CTA.tsx
+    └── Footer.tsx
+lib/
+└── translations.ts         # Dictionnaire FR + EN (UI + mockups)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Couleurs
+
+- **Marque / Succès** : `#2ECC71`
+- **Fond** : `#FFFFFF`
+- **Texte principal** : `#1F2937`
+- **Texte secondaire** : `#6B7280`
+- **Attention** : `#F39C12`
+- **Erreur / Danger** : `#E74C3C`
+
+## Disclaimer médical
+
+L'application tomady propose des suggestions alimentaires. En cas de maladie
+ou de doute, consulter toujours un médecin ou un professionnel de santé.
+Cette mention est présente dans le footer et la section Solutions.
+
+## Déploiement
+
+Compatible Vercel (déploiement automatique). Aucune variable d'environnement
+requise — le site est entièrement statique.
