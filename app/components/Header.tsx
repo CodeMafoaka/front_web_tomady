@@ -12,8 +12,8 @@ export default function Header() {
 
   const navItems = [
     { label: t.nav.home, href: "#home" },
-    { label: t.nav.app, href: "#screens" },
     { label: t.nav.solutions, href: "#features" },
+    { label: t.nav.app, href: "#screens" },
     { label: t.nav.alerts, href: "#alerts" },
     { label: t.nav.reviews, href: "#blog" },
   ];
