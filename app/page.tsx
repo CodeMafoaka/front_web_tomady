@@ -7,6 +7,7 @@ import Alerts from "./components/Alerts";
 import Testimonials from "./components/Testimonials";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
+import FadeIn from "./components/FadeIn";
 
 export default function Home() {
   return (
@@ -14,12 +15,24 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <Stats />
-        <Solutions />
-        <AppScreens />
-        <Alerts />
-        <Testimonials />
-        <CTA />
+        <FadeIn>
+          <Stats />
+        </FadeIn>
+        <FadeIn>
+          <Solutions />
+        </FadeIn>
+        <FadeIn>
+          <AppScreens />
+        </FadeIn>
+        <FadeIn>
+          <Alerts />
+        </FadeIn>
+        <FadeIn>
+          <Testimonials />
+        </FadeIn>
+        <FadeIn>
+          <CTA />
+        </FadeIn>
       </main>
       <Footer />
     </div>

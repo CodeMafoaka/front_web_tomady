@@ -1,11 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { useTranslation } from "./LanguageProvider";
+import { useLanguage, useTranslation } from "./LanguageProvider";
 import DownloadButton from "./DownloadButton";
+import QrCode from "./QrCode";
 
 export default function CTA() {
   const t = useTranslation();
+  const { lang } = useLanguage();
 
   return (
     <section
@@ -36,6 +37,25 @@ export default function CTA() {
             <p className="max-w-md text-[11px] text-white/60">
               {t.download.iosNote}
             </p>
+          </div>
+
+          <div className="relative mt-12 flex flex-col items-center justify-center gap-4 border-t border-white/15 pt-10 sm:flex-row sm:gap-6">
+            <QrCode
+              url="https://front-web-tomady.vercel.app/downloads/tomady-v1.0.0.apk"
+              size={140}
+            />
+            <div className="text-left">
+              <p className="text-sm font-bold uppercase tracking-wider text-white">
+                {lang === "fr"
+                  ? "Scannez avec votre téléphone"
+                  : "Scan with your phone"}
+              </p>
+              <p className="mt-1 max-w-xs text-xs text-white/70">
+                {lang === "fr"
+                  ? "Téléchargez Tomady directement sur votre appareil Android en scannant ce QR code."
+                  : "Download Tomady straight to your Android device by scanning this QR code."}
+              </p>
+            </div>
           </div>
         </div>
       </div>
