@@ -17,11 +17,11 @@ export default function Footer() {
             <Link
               href="#home"
               className="inline-block"
-              aria-label="tomady — Accueil"
+              aria-label="Tomady — Accueil"
             >
               <Image
                 src="/logo/logo web.png"
-                alt="tomady"
+                alt="Tomady"
                 width={140}
                 height={36}
                 className="h-9 w-auto"

@@ -17,13 +17,13 @@ const testimonialsData: { avatar: string; color: string; t: T }[] = [
         name: "Sarah Rakoto",
         role: "A perdu 12 kg en 6 mois",
         quote:
-          "tomady a complètement changé ma façon de manger. Les plans de repas IA sont délicieux et je ne me sens jamais privée. J'ai perdu 12 kg sans souffrir !",
+          "Tomady a complètement changé ma façon de manger. Les plans de repas IA sont délicieux et je ne me sens jamais privée. J'ai perdu 12 kg sans souffrir !",
       },
       en: {
         name: "Sarah Rakoto",
         role: "Lost 12 kg in 6 months",
         quote:
-          "tomady completely changed how I eat. The AI meal plans are delicious and I never feel deprived. Lost 12 kg without suffering!",
+          "Tomady completely changed how I eat. The AI meal plans are delicious and I never feel deprived. Lost 12 kg without suffering!",
       },
     },
   },
@@ -35,13 +35,13 @@ const testimonialsData: { avatar: string; color: string; t: T }[] = [
         name: "Lucas Bernard",
         role: "Coureur de marathon",
         quote:
-          "Pour un athlète, la nutrition est tout. tomady m'aide à atteindre mes macros chaque jour et les recettes sont vraiment savoureuses. 10/10.",
+          "Pour un athlète, la nutrition est tout. Tomady m'aide à atteindre mes macros chaque jour et les recettes sont vraiment savoureuses. 10/10.",
       },
       en: {
         name: "Lucas Bernard",
         role: "Marathon runner",
         quote:
-          "As an athlete, nutrition is everything. tomady helps me hit my macros daily and the recipes are actually tasty. 10/10.",
+          "As an athlete, nutrition is everything. Tomady helps me hit my macros daily and the recipes are actually tasty. 10/10.",
       },
     },
   },

@@ -37,18 +37,18 @@ export const translations = {
       title1: "3 solutions,",
       title2: "1 application.",
       desc:
-        "Atteins tes objectifs sans frustration. tomady combine suivi, intelligence et alertes pour t'accompagner au quotidien.",
+        "Atteins tes objectifs sans frustration. Tomady combine suivi, intelligence et alertes pour t'accompagner au quotidien.",
       medical:
-        "⚠️ tomady propose des suggestions alimentaires. En cas de maladie ou de doute, consulte toujours un médecin ou un professionnel de santé.",
+        "⚠️ Tomady propose des suggestions alimentaires. En cas de maladie ou de doute, consulte toujours un médecin ou un professionnel de santé.",
       s1Title: "Suivi nutritionnel",
       s1Desc:
         "Suis ton état de santé et ton alimentation directement dans l'app : repas, calories, macros, ressentis et évolution.",
       s2Title: "Interaction intelligente",
       s2Desc:
-        "Discute avec l'IA par texte (prompt) ou par commande vocale (speech-to-text). Dicte ton repas, tomady s'occupe du reste.",
+        "Discute avec l'IA par texte (prompt) ou par commande vocale (speech-to-text). Dicte ton repas, Tomady s'occupe du reste.",
       s3Title: "Alertes personnalisées",
       s3Desc:
-        "tomady détecte les aliments à éviter ou interdits selon ton profil, tes allergies et les recommandations de ton médecin.",
+        "Tomady détecte les aliments à éviter ou interdits selon ton profil, tes allergies et les recommandations de ton médecin.",
     },
     screens: {
       tag: "Dans l'app",
@@ -89,9 +89,9 @@ export const translations = {
       title1: "Des alertes qui",
       title2: "te protègent.",
       desc:
-        "À chaque scan ou recherche, tomady croise ton profil avec la base d'aliments. Résultat : 🟢 Conseillé ou 🔴 À éviter, en un clin d'œil.",
+        "À chaque scan ou recherche, Tomady croise ton profil avec la base d'aliments. Résultat : 🟢 Conseillé ou 🔴 À éviter, en un clin d'œil.",
       i1Title: "Allergies & intolérances",
-      i1Desc: "Gluten, lactose, arachides — tomady bloque ce qui te fait du mal.",
+      i1Desc: "Gluten, lactose, arachides — Tomady bloque ce qui te fait du mal.",
       i2Title: "Aliments interdits par le médecin",
       i2Desc:
         "Renseigne ton profil médical, l'app adapte ses recommandations.",
@@ -99,7 +99,7 @@ export const translations = {
       i3Desc:
         "Calories, macros, hydratation : alerte si tu dépasses ou manques.",
       alertTitle: "À éviter pour toi",
-      alertSub: "Alerte tomady",
+      alertSub: "Alerte Tomady",
       now: "maintenant",
       contains: "Contient :",
       okBadge: "Riche en fibres · 380 kcal",
@@ -111,17 +111,17 @@ export const translations = {
     },
     cta: {
       badge: "14 jours d'essai Pro · Sans carte bancaire",
-      title1: "Télécharge tomady",
+      title1: "Télécharge Tomady",
       title2: "mange mieux dès aujourd'hui.",
       desc:
-        "Disponible sur iOS & Android. Rejoins plus de 120 000 gourmands qui font déjà confiance à tomady.",
+        "Disponible sur iOS & Android. Rejoins plus de 120 000 gourmands qui font déjà confiance à Tomady.",
       rating: "⭐ Note 4,9 · iOS 14+ · Android 8+",
     },
     footer: {
       tagline:
         "Ton coach nutrition de poche. Suis tes repas, atteins tes objectifs, mange mieux — propulsé par une IA intelligente et la vraie science.",
       disclaimer:
-        "⚠️ tomady propose des suggestions alimentaires. En cas de maladie ou de doute, consulte toujours un médecin ou un professionnel de santé.",
+        "⚠️ Tomady propose des suggestions alimentaires. En cas de maladie ou de doute, consulte toujours un médecin ou un professionnel de santé.",
       cols: {
         App: ["iOS", "Android", "Nouveautés", "Roadmap", "Statut"],
         Features: [
@@ -145,7 +145,7 @@ export const translations = {
           "Cookies",
         ],
       },
-      copyright: "© 2026 tomady Inc. — Bien manger, bien vivre.",
+      copyright: "© 2026 Tomady Inc. — Bien manger, bien vivre.",
     },
     download: {
       appStore: "App Store",
@@ -219,7 +219,7 @@ export const translations = {
         caloriesValue: "1,420 / 2,000 kcal",
       },
       screen5: {
-        title: "tomady AI",
+        title: "Tomady AI",
         online: "En ligne",
         chatUser: "J'ai mangé un toast avocat ce matin",
         chatBot: "Ajouté ✅ · 320 kcal · 12g lipides. Bien joué pour le petit-déj équilibré ! 💚",
@@ -264,18 +264,18 @@ export const translations = {
       title1: "3 solutions,",
       title2: "1 app.",
       desc:
-        "Reach your goals without frustration. tomady combines tracking, intelligence and alerts to support you daily.",
+        "Reach your goals without frustration. Tomady combines tracking, intelligence and alerts to support you daily.",
       medical:
-        "⚠️ tomady provides food suggestions. If you are sick or in doubt, always consult a doctor or healthcare professional.",
+        "⚠️ Tomady provides food suggestions. If you are sick or in doubt, always consult a doctor or healthcare professional.",
       s1Title: "Nutrition tracking",
       s1Desc:
         "Track your health and diet right in the app: meals, calories, macros, feelings and progress.",
       s2Title: "Smart interaction",
       s2Desc:
-        "Chat with the AI via text or voice (speech-to-text). Dictate your meal, tomady does the rest.",
+        "Chat with the AI via text or voice (speech-to-text). Dictate your meal, Tomady does the rest.",
       s3Title: "Personalized alerts",
       s3Desc:
-        "tomady detects foods to avoid or skip based on your profile, allergies and doctor recommendations.",
+        "Tomady detects foods to avoid or skip based on your profile, allergies and doctor recommendations.",
     },
     screens: {
       tag: "Inside the app",
@@ -316,15 +316,15 @@ export const translations = {
       title1: "Alerts that",
       title2: "protect you.",
       desc:
-        "Every time you scan or search, tomady cross-references your profile with the food database. Result: 🟢 Recommended or 🔴 To avoid, at a glance.",
+        "Every time you scan or search, Tomady cross-references your profile with the food database. Result: 🟢 Recommended or 🔴 To avoid, at a glance.",
       i1Title: "Allergies & intolerances",
-      i1Desc: "Gluten, lactose, peanuts — tomady blocks what hurts you.",
+      i1Desc: "Gluten, lactose, peanuts — Tomady blocks what hurts you.",
       i2Title: "Doctor-banned foods",
       i2Desc: "Set your medical profile, the app adapts recommendations.",
       i3Title: "Real-time goals",
       i3Desc: "Calories, macros, hydration: alerts if you over- or under-shoot.",
       alertTitle: "To avoid for you",
-      alertSub: "tomady alert",
+      alertSub: "Tomady alert",
       now: "now",
       contains: "Contains:",
       okBadge: "High fiber · 380 kcal",
@@ -336,17 +336,17 @@ export const translations = {
     },
     cta: {
       badge: "14-day pro trial · No credit card",
-      title1: "Download tomady",
+      title1: "Download Tomady",
       title2: "start eating better.",
       desc:
-        "Available on iOS & Android. Join 120,000+ food lovers who already trust tomady to reach their goals.",
+        "Available on iOS & Android. Join 120,000+ food lovers who already trust Tomady to reach their goals.",
       rating: "⭐ Rated 4.9 · iOS 14+ · Android 8+",
     },
     footer: {
       tagline:
         "Your pocket nutrition coach. Track meals, reach goals, eat better — powered by smart AI and real science.",
       disclaimer:
-        "⚠️ tomady provides food suggestions. If you are sick or in doubt, always consult a doctor or healthcare professional.",
+        "⚠️ Tomady provides food suggestions. If you are sick or in doubt, always consult a doctor or healthcare professional.",
       cols: {
         App: ["Download iOS", "Download Android", "What's new", "Roadmap", "Status"],
         Features: [
@@ -365,7 +365,7 @@ export const translations = {
         ],
         Legal: ["Privacy", "Terms", "Health disclaimer", "Cookies"],
       },
-      copyright: "© 2026 tomady Inc. — Eat well, live well.",
+      copyright: "© 2026 Tomady Inc. — Eat well, live well.",
     },
     download: {
       appStore: "App Store",
@@ -438,7 +438,7 @@ export const translations = {
         caloriesValue: "1,420 / 2,000 kcal",
       },
       screen5: {
-        title: "tomady AI",
+        title: "Tomady AI",
         online: "Online",
         chatUser: "I had an avocado toast this morning",
         chatBot: "Added ✅ · 320 kcal · 12g fat. Nice balanced breakfast! 💚",

@@ -10,11 +10,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "tomady — Ton coach nutrition dans ta poche",
+  title: "Tomady — Ton coach nutrition dans ta poche",
   description:
-    "tomady est l'application mobile qui suit tes repas, construit des plans personnalisés et discute avec toi pour atteindre tes objectifs.",
+    "Tomady est l'application mobile qui suit tes repas, construit des plans personnalisés et discute avec toi pour atteindre tes objectifs.",
   keywords: [
-    "tomady",
+    "Tomady",
     "nutrition",
     "coach",
     "santé",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     apple: "/logo/logo web.png",
   },
   openGraph: {
-    title: "tomady — Ton coach nutrition dans ta poche",
+    title: "Tomady — Ton coach nutrition dans ta poche",
     description:
       "Suis tes repas, atteins tes objectifs, mange mieux — dans une seule app.",
     type: "website",

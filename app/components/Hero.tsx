@@ -60,7 +60,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-lg text-base leading-relaxed text-muted md:text-lg">
-            <strong className="text-foreground">tomady</strong> {t.hero.desc}
+            <strong className="text-foreground">Tomady</strong> {t.hero.desc}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">

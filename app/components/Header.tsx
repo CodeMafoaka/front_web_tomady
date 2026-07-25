@@ -37,11 +37,11 @@ export default function Header() {
         <Link
           href="#home"
           className="group flex items-center gap-2"
-          aria-label="tomady — Accueil"
+          aria-label="Tomady — Accueil"
         >
           <Image
             src="/logo/logo web.png"
-            alt="tomady"
+            alt="Tomady"
             width={140}
             height={36}
             priority
