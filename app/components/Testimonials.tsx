@@ -10,67 +10,81 @@ type T = {
 };
 
 type Testimonial = {
-  avatar: string;
   photo: string;
-  color: string;
+  accent: string;
   t: T;
 };
 
 const testimonialsData: Testimonial[] = [
   {
-    avatar: "SR",
-    photo: "/photo/sarah-rakoto.jpg",
-    color: "bg-brand",
+    photo: "/photo/cristiano-ronaldo.jpg",
+    accent: "bg-brand",
     t: {
       fr: {
-        name: "Sarah Rakoto",
-        role: "A perdu 12 kg en 6 mois",
+        name: "Cristiano Ronaldo",
+        role: "Athlète de renommée mondiale",
         quote:
-          "Tomady a complètement changé ma façon de manger. Les plans de repas IA sont délicieux et je ne me sens jamais privée. J'ai perdu 12 kg sans souffrir !",
+          "La discipline nutritionnelle est la base de la performance. Tomady me permet de suivre mes macros où que je sois, sans compromis. 💪",
       },
       en: {
-        name: "Sarah Rakoto",
-        role: "Lost 12 kg in 6 months",
+        name: "Cristiano Ronaldo",
+        role: "World-class athlete",
         quote:
-          "Tomady completely changed how I eat. The AI meal plans are delicious and I never feel deprived. Lost 12 kg without suffering!",
+          "Nutritional discipline is the foundation of performance. Tomady lets me track my macros anywhere, no compromise. 💪",
       },
     },
   },
   {
-    avatar: "LB",
-    photo: "/photo/lucas-bernard.jpg",
-    color: "bg-warning",
+    photo: "/photo/messi.jpg",
+    accent: "bg-warning",
     t: {
       fr: {
-        name: "Lucas Bernard",
-        role: "Coureur de marathon",
+        name: "Lionel Messi",
+        role: "Footballeur professionnel",
         quote:
-          "Pour un athlète, la nutrition est tout. Tomady m'aide à atteindre mes macros chaque jour et les recettes sont vraiment savoureuses. 10/10.",
+          "Tomady est devenu un outil indispensable pour ma préparation. Les repas équilibrés et les macros précises m'aident à rester au top sur le terrain. ⚽",
       },
       en: {
-        name: "Lucas Bernard",
-        role: "Marathon runner",
+        name: "Lionel Messi",
+        role: "Professional footballer",
         quote:
-          "As an athlete, nutrition is everything. Tomady helps me hit my macros daily and the recipes are actually tasty. 10/10.",
+          "Tomady has become an essential tool in my preparation. The balanced meals and precise macros help me stay at the top on the pitch. ⚽",
       },
     },
   },
   {
-    avatar: "AT",
-    photo: "/photo/aina-tessier.jpg",
-    color: "bg-error",
+    photo: "/photo/mr-bean.jpg",
+    accent: "bg-error",
     t: {
       fr: {
-        name: "Aina Tessier",
-        role: "Maman de 3 enfants",
+        name: "Mr Bean",
+        role: "Papa maladroit & humoriste",
         quote:
-          "La liste de courses intelligente me fait gagner des heures chaque semaine. Mes enfants adorent les recettes et je me sens enfin sereine sur ce qu'on mange.",
+          "Moi et la cuisine, on n'a jamais été amis. Avec Tomady, je nourris mon petit-fils correctement sans rien faire brûler. 😅",
       },
       en: {
-        name: "Aina Tessier",
-        role: "Busy mom of 3",
+        name: "Mr Bean",
+        role: "Clumsy dad & comedian",
         quote:
-          "The smart grocery list saves me hours every week. My kids love the recipes and I finally feel good about what we eat.",
+          "Cooking and I were never friends. With Tomady, I feed my grandson properly without burning anything. 😅",
+      },
+    },
+  },
+  {
+    photo: "/photo/jim-carrey.jpg",
+    accent: "bg-brand-dark",
+    t: {
+      fr: {
+        name: "Jim Carrey",
+        role: "Acteur & amateur de bien-être",
+        quote:
+          "Entre deux tournages, Tomady m'aide à garder une alimentation saine et à ne pas céder aux tentations. Ma santé mentale et physique s'en ressentent. 🌱",
+      },
+      en: {
+        name: "Jim Carrey",
+        role: "Actor & wellness enthusiast",
+        quote:
+          "Between shoots, Tomady helps me stay healthy and resist temptations. My mental and physical health benefit from it. 🌱",
       },
     },
   },
@@ -98,15 +112,17 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {testimonialsData.map((item) => {
             const txt = item.t[lang];
             return (
               <article
-                key={item.avatar}
-                className="relative rounded-3xl border border-border bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
+                key={item.photo}
+                className="relative flex flex-col rounded-3xl border border-border bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
               >
-                <span className="absolute -top-3 left-7 grid h-9 w-9 place-items-center rounded-2xl bg-brand text-white shadow-md">
+                <span
+                  className={`absolute -top-3 left-7 grid h-9 w-9 place-items-center rounded-2xl text-white shadow-md ${item.accent}`}
+                >
                   <QuoteIcon size={16} className="h-4 w-4" />
                 </span>
 
@@ -125,7 +141,7 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                <p className="mt-4 text-sm leading-relaxed text-foreground">
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-foreground">
                   &ldquo;{txt.quote}&rdquo;
                 </p>
 
