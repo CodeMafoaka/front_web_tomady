@@ -87,9 +87,9 @@ export default function Hero() {
           <div className="mt-10 flex items-center gap-6">
             <div className="flex -space-x-3">
               {[
-                { src: "/photo/sarah-rakoto.jpg", alt: "Sarah Rakoto" },
-                { src: "/photo/lucas-bernard.jpg", alt: "Lucas Bernard" },
-                { src: "/photo/aina-tessier.jpg", alt: "Aina Tessier" },
+                { src: "/photo/cristiano-ronaldo.jpg", alt: "Cristiano Ronaldo" },
+                { src: "/photo/messi.jpg", alt: "Lionel Messi" },
+                { src: "/photo/mr-bean.jpg", alt: "Mr Bean" },
                 { src: "/photo/jim-carrey.jpg", alt: "Jim Carrey" },
               ].map((u) => (
                 <span
