@@ -9,10 +9,10 @@ import {
 } from "./icons";
 
 const stats = [
-  { value: "50+", labelKey: "users" as const, Icon: UsersIcon },
-  { value: "1M+", labelKey: "meals" as const, Icon: PlateIcon },
+  { value: "3+", labelKey: "users" as const, Icon: UsersIcon },
+  { value: "1k+", labelKey: "meals" as const, Icon: PlateIcon },
   { value: "4,5", labelKey: "rating" as const, Icon: StarIcon },
-  { value: "70%", labelKey: "goals" as const, Icon: HeartIcon },
+  { value: "60%", labelKey: "goals" as const, Icon: HeartIcon },
 ];
 
 export default function Stats() {
